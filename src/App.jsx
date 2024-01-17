@@ -49,7 +49,7 @@ function App() {
  if(status == 'loading'){
   return (
     <div className="loading">
-      <LoadingOutlined />
+      <span><LoadingOutlined /></span>
     </div>
   )
 }
@@ -62,7 +62,7 @@ if(status == 'error'){
   )
 }
 
-if(role == 1){
+if(role == 3){
   return(
     <>
       {places && reports && userLocation && <HomePage  places={places} reports={reports} userLocation={userLocation} />}

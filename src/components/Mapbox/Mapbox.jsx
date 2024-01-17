@@ -22,6 +22,7 @@ mapboxgl.accessToken = token;
 
 const Mapbox = ({places, reports, userLocation}) => {
   const mapContainer = useRef(null);
+  const btnShow = useRef(null);
   const dispatch = useDispatch();
 
   const ADS_OF_PLACE_FROM_API = useSelector(state => state.ads.ads)
@@ -224,57 +225,8 @@ const Mapbox = ({places, reports, userLocation}) => {
       dispatch(fetchAds(location_id))
     });
 
-    map.current.on('idle', () => {
-      // If these two layers were not added to the map, abort
-      if (!map.current.getLayer('places')) {
-        return;
-      }
-       
-      // Enumerate ids of the layers.
-      const toggleableLayerIds = ['btnShow'];
-       
-      // Set up the corresponding toggle button for each layer.
-      for (const id of toggleableLayerIds) {
-        // Skip layers that already have a button set up.
-        if (document.getElementById(id)) {
-          continue;
-        }
-        
-        // Create a link.
-        const link = document.createElement('a');
-        link.id = id;
-        link.href = '#';
-        link.className = 'active';
-        
-        // Show or hide layer when the toggle is clicked.
-        link.onclick = function (e) {
-          const clickedLayer = this.textContent;
-          e.preventDefault();
-          e.stopPropagation();
-          
-          const visibility = map.current.getLayoutProperty(
-            clickedLayer,
-            'visibility'
-          );
-        
-          // Toggle layer visibility by changing the layout object's visibility property.
-          if (visibility === 'visible') {
-          map.current.setLayoutProperty(clickedLayer, 'visibility', 'none');
-            this.className = '';
-          } else {
-            this.className = 'active';
-            map.setLayoutProperty(
-              clickedLayer,
-              'visibility',
-              'visible'
-            );
-          }
-      };
-       
-      const layers = document.getElementById('menu');
-      layers.appendChild(link);
-      }
-    });
+
+    
 
 
     map.current.addControl(
@@ -292,18 +244,35 @@ const Mapbox = ({places, reports, userLocation}) => {
       setZoom(map.current.getZoom().toFixed(2));
     });
 
-    // Clean up the map instance on component unmount
   });
 
   const handleData = () => {
     setInfoLocation(null);
   }
 
+  const handleShowPlaces = () => {
+    const visibility = map.current.getLayoutProperty(
+      'places',
+      'visibility',
+      'none'
+    );
+
+    if (visibility === 'visible') {
+      map.current.setLayoutProperty('places', 'visibility', 'none');
+    } else {
+        map.current.setLayoutProperty(
+          'places',
+          'visibility',
+          'visible'
+        );
+      }
+  }
+
   return (
     <>
         {isOpen && <ShowAds ads={ads} data={infoLocation} handleData={handleData} handleOpen={handleOpen} />}
         <div className="map-box">
-          <button id="btnShow">Ẩn/Hiện các điểm đặt</button>
+          <button onClick={handleShowPlaces} id="btnShow">Ẩn/Hiện các điểm đặt</button>
           <div className="sidebar">
             Kinh độ: {lng} | Vĩ độ: {lat} | Zoom: {zoom}
           </div>

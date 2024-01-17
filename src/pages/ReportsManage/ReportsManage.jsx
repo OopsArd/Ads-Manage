@@ -29,15 +29,15 @@ const ReportsManage = () => {
     }, [dispatch])
     useEffect(() => {
         if(reports){
-            const data = {
-                key: reports.id,
-                reporttype_name: reports.reporttype_name,
-                fullname: reports.fullname,
-                adress: reports.wards_fullname + "/" + reports.districts_fullname,
-                created: reports.created,
-                processed: reports.processed
-
-            }
+            const data = reports.map(report => {
+                return {
+                    key: report.id,
+                    reporttype_name: report.reporttype_name,
+                    fullname: report.fullname,
+                    adress: report.wards_fullname + "/" + report.districts_fullname,
+                    created: report.created,
+                    processed: report.processed
+                }})
             setList(data)
         }
     }, [reports])

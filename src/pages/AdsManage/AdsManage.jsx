@@ -17,16 +17,17 @@ const AdsManages = () => {
 
     useEffect(() => {
         if(ads){
-            const data = {
-                key: ads.id,
-                adstabletype_name: ads.adstabletype_name,
-                height: ads.height,
-                width: ads.width,
-                url: ads.url,
-                ads_company_id: ads.ads_company_id,
-                start_date: ads.start_date,
-                end_date: ads.end_date
-            }
+            const data = ads.map(item => {
+                return {
+                    key: item.id,
+                    adstabletype_name: item.adstabletype_name,
+                    height: item.height,
+                    width: item.width,
+                    url: item.url,
+                    ads_company_id: item.ads_company_id,
+                    start_date: item.start_date,
+                    end_date: item.end_date
+                }})
             setList(data)
         }
     },[ads])
@@ -66,7 +67,7 @@ const AdsManages = () => {
     return (
     <div className='ads-manage'>
         <h1>Danh sách bảng quảng cáo</h1>
-        <Table columns={columns} dataSource={listAds} />
+        {listAds.length > 0 ? <Table columns={columns} dataSource={listAds} /> : <h3>Không có thông tin quảng cáo</h3>}
     </div>
     )
 }
