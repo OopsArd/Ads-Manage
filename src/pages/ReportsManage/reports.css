@@ -1,0 +1,16 @@
+.reports-manage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+h1{
+    margin: 10px auto;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 10%;
+    z-index: 1;  
+  }

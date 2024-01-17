@@ -1,0 +1,53 @@
+.map-box{
+    height: 100vh;
+}
+
+.mapboxgl-popup-content{
+    background-color: aqua;
+}
+
+.container{
+    height: 100%;
+}
+
+.sidebar {
+    background-color: rgb(35 55 75 / 90%);
+    color: #fff;
+    font-family: monospace;
+
+    z-index: 1;
+
+    position: absolute;
+    bottom: 0;
+    left: 75%;
+    
+    padding: 6px 12px;
+    margin: 12px;
+    border-radius: 4px;
+}
+
+#btnShow{
+    background-color: rgb(35 55 75 / 90%);
+    color: #fff;
+    font-family: monospace;
+
+    z-index: 1;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    padding: 6px 12px;
+    margin: 12px;
+    border-radius: 4px;
+
+    width: 200px;
+    height: 50px;
+
+}
+
+#btnShow:hover{
+    background-color: #fff;
+    color: rgb(35 55 75 / 90%);
+}

@@ -1,0 +1,29 @@
+.edit-ads{
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 10px;
+}
+
+.btnCheck, .btnUpdate{
+    width: 10%;
+    font-size: 16px;
+    padding: 10px 0;
+    margin: 10px auto;
+    background-color: rgb(50, 150, 250);
+
+    color: white;
+    border-radius: 10px;
+}
+
+.edit-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.date{
+    font-size: 14px;
+    padding: 0 10px;
+    margin: 10px 0;
+}

@@ -1,0 +1,16 @@
+
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+  
+.app {
+    display: flex;
+}
+
+
+.loading{
+    margin: 0 auto;
+}
+

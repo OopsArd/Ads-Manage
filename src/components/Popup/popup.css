@@ -1,0 +1,63 @@
+.popup{
+    position: absolute;
+    background: transparent;
+
+    z-index: 100;
+
+    width: 100%;
+}
+
+.card-popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: white;
+
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
+
+
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btnExit, .btnStatus{
+    width: 20%;
+    font-size: 16px;
+    padding: 10px 0;
+    margin: 10px auto;
+}
+
+.btnExit{
+    border-radius: 10px;
+    background-color: rgb(50, 150, 250);
+    color: white;
+}
+
+.PROCESSING{
+    background-color: #f7f71e;
+}
+
+.SUCCESS{
+    background-color: #60f714;
+}
+
+
+
+
